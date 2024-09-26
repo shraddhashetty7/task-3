@@ -20,14 +20,14 @@ jobs:
 
     - name: Copy files to EC2
       run: |
-        ssh -o StrictHostKeyChecking=no ubuntu@98.80.71.189 "mkdir -p /home/ubuntu/medusa-backend"
-        scp -o StrictHostKeyChecking=no -r ./* ubuntu@98.80.71.189:/home/ubuntu/medusa-backend/
-        scp -o StrictHostKeyChecking=no ./docker-compose.yml ubuntu@98.80.71.189:/home/ubuntu/medusa-backend/
-        scp -o StrictHostKeyChecking=no ./Dockerfile ubuntu@98.80.71.189:/home/ubuntu/medusa-backend/
+        ssh -o StrictHostKeyChecking=no ubuntu@51.20.132.94 "mkdir -p /home/ubuntu/medusa-backend"
+        scp -o StrictHostKeyChecking=no -r ./* ubuntu@51.20.132.94:/home/ubuntu/medusa-backend/
+        scp -o StrictHostKeyChecking=no ./docker-compose.yml ubuntu@51.20.132.94:/home/ubuntu/medusa-backend/
+        scp -o StrictHostKeyChecking=no ./Dockerfile ubuntu@51.20.132.94:/home/ubuntu/medusa-backend/
 
     - name: SSH into EC2 and deploy
       run: |
-        ssh -o StrictHostKeyChecking=no ubuntu@98.80.71.189 << 'EOF'
+        ssh -o StrictHostKeyChecking=no ubuntu@51.20.132.94 << 'EOF'
           set -e
           cd /home/ubuntu/medusa-backend || exit 1
           docker-compose down || true
